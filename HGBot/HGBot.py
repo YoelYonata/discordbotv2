@@ -22,10 +22,11 @@ eggplant = ''
 ricoFP = "data/rico_quotes.pk1"
 vincentFP = "data/vincent_movies.pk1"
 aidenFP = "data/aiden_patrol.pk1"
-token = "data/token.pk1"
+tokenFP = "data/token.pk1"
+token = ''
 
-with open(vincentFP, "rb") as movies_file:
-                    movies = pickle.load(movies_file)
+with open(tokenFP, "rb") as token_file:
+    token = pickle.load(token_file)
 
 @client.event
 async def on_ready():
@@ -117,4 +118,4 @@ async def on_message(msg):
     if buffer.startswith('!yalikejazz'):
         await client.send_message(msg.channel, 'According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don\'t care')
 
-client.run('NDIzMDExNjc4MTE2OTA0OTYw.DY2aLg.zTFsR7AnkVWfiZrdF4Q0dnocLdk')
+client.run(token)
